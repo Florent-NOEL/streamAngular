@@ -1,0 +1,32 @@
+.container{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 12fr 1fr ;
+  grid-template-areas:
+  "header"
+  "body"
+  "footer"
+
+  ;
+}
+
+
+
+.header{
+  grid-area: header;
+  background-color: rgba(149, 1, 248, 0.301);
+  min-height: 50px;
+}
+.body{
+  grid-area: body;
+
+}
+
+.footer{
+grid-area: footer;
+background-color: #000000;
+}
+
+
+

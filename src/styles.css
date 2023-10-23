@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #000000b5;
+  font-family: Robot, Arial, sans-serif;
+  color: hsl(0, 0%, 100%);
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 100px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
