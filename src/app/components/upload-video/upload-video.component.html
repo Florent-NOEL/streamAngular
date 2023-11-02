@@ -25,6 +25,9 @@
 <button (click)="testButton()">test</button>
 
 <video controls id="video">
-  <source src="assets/hero.webm" type="video/webm" />
+  <source
+    src="http://localhost:8082/api/stream/video/webm/hero.webm"
+    type="video/webm"
+  />
 </video>
-<canvas id="thumbnail" alt="thumbnail"></canvas>
+<canvas #canvasElement id="thumbnail" alt="thumbnail"></canvas>
