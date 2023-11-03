@@ -22,4 +22,16 @@ export class VideoService {
       "http://localhost:8080/stream_spring/api/video/video/hero.webm"
     );
   }
+
+  captureImage(timeCapture: string, videoName: string) {
+    let data = {
+      timeCapture: timeCapture,
+      videoName: videoName,
+    };
+    const screanShot = this.http.post(
+      "http://localhost:8080/stream_spring/api/video/captureImage",
+      data
+    );
+    screanShot.subscribe();
+  }
 }

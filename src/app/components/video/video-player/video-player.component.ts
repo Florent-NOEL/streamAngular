@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { VideoService } from 'src/app/services/video.service';
+import { Component, Input } from "@angular/core";
+import { urlSpringStream } from "src/app/env";
 
 @Component({
-  selector: 'app-video-player',
-  templateUrl: './video-player.component.html',
-  styleUrls: ['./video-player.component.css'],
+  selector: "app-video-player",
+  templateUrl: "./video-player.component.html",
+  styleUrls: ["./video-player.component.css"],
 })
 export class VideoPlayerComponent {
-  path = 'http://localhost:8082/api/stream/';
-  type = 'webm';
-  title = 'hero';
-  typeInput = 'video/' + this.type;
-  url = this.path + this.typeInput + '/' + this.title + '.' + this.type;
+  path = urlSpringStream;
+  @Input()
+  id!: string;
+  @Input()
+  title!: string;
+  @Input()
+  type!: string;
+  url = this.path + this.type + "/" + this.title;
 }

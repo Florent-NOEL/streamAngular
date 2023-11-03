@@ -9,6 +9,7 @@ import { VideoPlayerComponent } from './components/video/video-player/video-play
 import { VideoPageComponent } from './routes/video-page/video-page.component';
 import { UploadVideoComponent } from './components/upload-video/upload-video.component';
 import { TestComponent } from './routes/test/test.component';
+import { UploadPageComponent } from './routes/upload-page/upload-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TestComponent } from './routes/test/test.component';
     VideoPageComponent,
     UploadVideoComponent,
     TestComponent,
+    UploadPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
