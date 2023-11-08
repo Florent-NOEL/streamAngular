@@ -15,6 +15,7 @@ export class UploadVideoComponent {
   videoName!: string;
   type!: string;
   file: File | null = null; // Variable to store file
+  genreToSend = [];
 
   constructor(private http: HttpClient, private videoServ: VideoService) {}
 
@@ -28,6 +29,10 @@ export class UploadVideoComponent {
       this.status = 'initial';
       this.file = file;
     }
+  }
+  addGenreList(genres: any) {
+    this.genreToSend = genres;
+    console.log(this.genreToSend);
   }
 
   refresh() {
@@ -54,6 +59,14 @@ export class UploadVideoComponent {
     console.log(video.currentTime.toFixed(2));
   }
 
+  //create the video in the data base and add genre relationship
+
+  createVideoDataBase() {
+    if (this.file) {
+      this.videoServ.createVideoDb(this.file!.name, this.genreToSend);
+    }
+  }
+
   onUpload() {
     this.refresh();
     if (this.file) {
@@ -77,6 +90,7 @@ export class UploadVideoComponent {
             this.status = 'success';
             this.videoPath = error.error.text;
             console.log(this.videoPath);
+            this.createVideoDataBase();
             this.refresh();
             return;
           }

@@ -28,3 +28,7 @@
 <video id="video" controls>
   <source src="" type="{{ type }}" />
 </video>
+<app-genre-list-button
+  (genreEmitter)="addGenreList($event)"
+></app-genre-list-button>
+<button (click)="createVideoDataBase()">create film db</button>

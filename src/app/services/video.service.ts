@@ -1,26 +1,25 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { VideoRequest } from '../models/video-request';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class VideoService {
   constructor(private http: HttpClient) {}
 
-  getVideo(path: string, type: string): Observable<any> {
-    let videoInfos = {
-      path: path,
-      type: type,
+  createVideoDb(title: string, listGenres: Array<string>) {
+    let data = {
+      title: title,
+      genreEntitieId: listGenres,
     };
-
-    let headers = new HttpHeaders({
-      responseType: "blob",
-    });
-
-    return this.http.get(
-      "http://localhost:8080/stream_spring/api/video/video/hero.webm"
+    console.log(data);
+    const createVideoDb = this.http.post(
+      'http://localhost:8080/stream_spring/api/video/create',
+      data
     );
+    createVideoDb.subscribe();
   }
 
   captureImage(timeCapture: string, videoName: string) {
@@ -29,7 +28,7 @@ export class VideoService {
       videoName: videoName,
     };
     const screanShot = this.http.post(
-      "http://localhost:8080/stream_spring/api/video/captureImage",
+      'http://localhost:8080/stream_spring/api/video/captureImage',
       data
     );
     screanShot.subscribe();
