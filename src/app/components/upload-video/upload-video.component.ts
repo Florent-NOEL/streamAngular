@@ -1,16 +1,16 @@
-import { VideoService } from "src/app/services/video.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Component, ElementRef, ViewChild } from "@angular/core";
-import { throwError } from "rxjs";
-import { urlSpringStream } from "src/app/env";
+import { VideoService } from 'src/app/services/video.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { throwError } from 'rxjs';
+import { urlSpringStream } from 'src/app/env';
 
 @Component({
-  selector: "app-upload-video",
-  templateUrl: "./upload-video.component.html",
-  styleUrls: ["./upload-video.component.css"],
+  selector: 'app-upload-video',
+  templateUrl: './upload-video.component.html',
+  styleUrls: ['./upload-video.component.css'],
 })
 export class UploadVideoComponent {
-  status: "initial" | "uploading" | "success" | "fail" = "initial"; // Variable to store file status
+  status: 'initial' | 'uploading' | 'success' | 'fail' = 'initial'; // Variable to store file status
   videoPath!: string;
   videoName!: string;
   type!: string;
@@ -25,7 +25,7 @@ export class UploadVideoComponent {
     const file: File = event.target.files[0];
 
     if (file) {
-      this.status = "initial";
+      this.status = 'initial';
       this.file = file;
     }
   }
@@ -34,14 +34,14 @@ export class UploadVideoComponent {
     if (this.file) {
       this.type = this.file.type;
       this.videoName = this.file.name;
-      let video = <HTMLVideoElement>document.getElementById("video");
-      video.src = urlSpringStream + this.type + "/" + this.videoName;
+      let video = <HTMLVideoElement>document.getElementById('video');
+      video.src = urlSpringStream + this.type + '/' + this.videoName;
     }
   }
 
   capture() {
     if (this.file) {
-      let video = <HTMLVideoElement>document.getElementById("video");
+      let video = <HTMLVideoElement>document.getElementById('video');
       let timeCapture = video.currentTime.toFixed(2);
       this.videoName = this.file.name;
       this.videoServ.captureImage(timeCapture, this.videoName);
@@ -49,8 +49,8 @@ export class UploadVideoComponent {
   }
 
   timeCapture() {
-    let video = <HTMLVideoElement>document.getElementById("video");
-    console.log("duration" + video.duration);
+    let video = <HTMLVideoElement>document.getElementById('video');
+    console.log('duration' + video.duration);
     console.log(video.currentTime.toFixed(2));
   }
 
@@ -59,29 +59,29 @@ export class UploadVideoComponent {
     if (this.file) {
       const formData = new FormData();
 
-      formData.append("file", this.file, this.file.name);
+      formData.append('file', this.file, this.file.name);
       const upload = this.http.post(
-        "http://localhost:8080/stream_spring/api/video/uploadVideo",
+        'http://localhost:8080/stream_spring/api/video/uploadVideo',
         formData
       );
 
-      this.status = "uploading";
+      this.status = 'uploading';
 
       upload.subscribe({
         next: (data) => {
-          this.status = "success";
+          this.status = 'success';
           this.videoPath = data.toString();
         },
         error: (error: any) => {
           if (error.error.text) {
-            this.status = "success";
+            this.status = 'success';
             this.videoPath = error.error.text;
             console.log(this.videoPath);
             this.refresh();
             return;
           }
 
-          this.status = "fail";
+          this.status = 'fail';
           return throwError(() => error);
         },
       });

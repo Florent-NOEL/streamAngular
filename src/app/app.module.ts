@@ -10,6 +10,7 @@ import { VideoPageComponent } from './routes/video-page/video-page.component';
 import { UploadVideoComponent } from './components/upload-video/upload-video.component';
 import { TestComponent } from './routes/test/test.component';
 import { UploadPageComponent } from './routes/upload-page/upload-page.component';
+import { GenreListButtonComponent } from './components/genre-list-button/genre-list-button.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UploadPageComponent } from './routes/upload-page/upload-page.component'
     UploadVideoComponent,
     TestComponent,
     UploadPageComponent,
+    GenreListButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
