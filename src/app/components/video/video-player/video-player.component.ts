@@ -1,4 +1,10 @@
-import { Component, Input } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from "@angular/core";
 import { urlSpringStream } from "src/app/env";
 
 @Component({
@@ -6,13 +12,13 @@ import { urlSpringStream } from "src/app/env";
   templateUrl: "./video-player.component.html",
   styleUrls: ["./video-player.component.css"],
 })
-export class VideoPlayerComponent {
+export class VideoPlayerComponent implements OnInit {
   path = urlSpringStream;
-  @Input()
-  id!: string;
   @Input()
   title!: string;
   @Input()
   type!: string;
-  url = this.path + this.type + "/" + this.title;
+  @Input()
+  url!: string;
+  ngOnInit(): void {}
 }

@@ -1,9 +1,13 @@
 <div class="container">
-  <div *ngFor="let item of list" class="card-container">
-    <img src="../../../assets/téléchargement.jfif" class="card-img" />
+  <div *ngFor="let v of videos" class="card-container">
+    <img
+      (click)="goToVideo(v.title!)"
+      src="{{ url + v.title }}"
+      class="card-img"
+    />
 
     <div class="flex-space-between">
-      <div class="card-title">Title of the fun video</div>
+      <div class="card-title">{{ v.title }}</div>
       <img class="like-icon" src="../../../assets/fullhoert.ico" />
     </div>
     <div class="card-description">

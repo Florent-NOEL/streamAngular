@@ -8,7 +8,7 @@ import { UploadPageComponent } from "./routes/upload-page/upload-page.component"
 
 const routes: Routes = [
   { path: "upload", component: UploadPageComponent },
-  { path: "video", component: VideoPageComponent },
+  { path: "video/:video_title", component: VideoPageComponent },
   { path: "", component: HomeComponent },
 ];
 

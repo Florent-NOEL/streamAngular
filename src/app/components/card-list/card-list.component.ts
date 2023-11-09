@@ -1,10 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { urlSpringStream } from "src/app/env";
+import { VideoResponse } from "src/app/models/video-response";
+import { VideoService } from "src/app/services/video.service";
 
 @Component({
-  selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css'],
+  selector: "app-card-list",
+  templateUrl: "./card-list.component.html",
+  styleUrls: ["./card-list.component.css"],
 })
-export class CardListComponent {
-  list = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+export class CardListComponent implements OnInit {
+  url = urlSpringStream + "img/";
+  videos!: Array<VideoResponse>;
+  @Input()
+  page = 0;
+  @Input()
+  items = 18;
+  constructor(private videoServ: VideoService, private router: Router) {}
+  ngOnInit(): void {
+    this.videoServ.findAllByPage(this.page, this.items).subscribe((data) => {
+      this.videos = data;
+      console.log(this.videos);
+    });
+  }
+  goToVideo(title: string) {
+    this.router.navigateByUrl("video/" + title);
+  }
 }
