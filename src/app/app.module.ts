@@ -11,6 +11,8 @@ import { UploadVideoComponent } from './components/upload-video/upload-video.com
 import { TestComponent } from './routes/test/test.component';
 import { UploadPageComponent } from './routes/upload-page/upload-page.component';
 import { GenreListButtonComponent } from './components/genre-list-button/genre-list-button.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,9 @@ import { GenreListButtonComponent } from './components/genre-list-button/genre-l
     TestComponent,
     UploadPageComponent,
     GenreListButtonComponent,
+    NavbarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

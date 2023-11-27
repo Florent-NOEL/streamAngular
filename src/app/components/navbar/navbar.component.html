@@ -1,0 +1,12 @@
+<select [(ngModel)]="genre">
+  <div *ngFor="let g of genreList">
+    <option type="select" id="{{ g }}" value="{{ g }}">{{ g }}</option>
+  </div>
+</select>
+<button (click)="selectGenre()">recherche</button>
+
+<!--
+<div *ngFor="let g of genreList">
+  <button (click)="selectGenre()" id="{{ g }}">{{ g }}</button>
+</div>
+ -->
