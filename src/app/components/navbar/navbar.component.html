@@ -1,9 +1,9 @@
-<select [(ngModel)]="genre">
+<select class="select-genre" [(ngModel)]="genre">
   <ng-container *ngFor="let g of genreList">
     <option type="select" id="{{ g }}" value="{{ g }}">{{ g }}</option>
   </ng-container>
 </select>
-<button (click)="selectGenre()">recherche</button>
+<button class="nav-button" (click)="selectGenre()">recherche</button>
 
 <!--
 <div *ngFor="let g of genreList">
