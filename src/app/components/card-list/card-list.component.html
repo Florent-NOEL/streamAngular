@@ -1,19 +1,40 @@
 <div class="container">
-  <div *ngFor="let v of videos" class="card-container">
-    <img
-      (click)="goToVideo(v.title!)"
-      src="{{ url + v.title }}"
-      class="card-img"
-    />
+  <ng-container *ngIf="filteredVideo == null; else elseBlock">
+    <div *ngFor="let v of videos" class="card-container">
+      <img
+        (click)="goToVideo(v.title!)"
+        src="{{ url + v.title }}"
+        class="card-img"
+      />
 
-    <div class="flex-space-between">
-      <div class="card-title">{{ v.title }}</div>
-      <img class="like-icon" src="../../../assets/fullhoert.ico" />
+      <div class="flex-space-between">
+        <div class="card-title">{{ v.title }}</div>
+        <img class="like-icon" src="../../../assets/fullhoert.ico" />
+      </div>
+      <div class="card-description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea iusto minus
+        assumenda, quis aut placeat sapiente similique ipsam ipsa natus ratione
+        quo nulla est adipisci nemo totam aliquam vero non?
+      </div>
     </div>
-    <div class="card-description">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea iusto minus
-      assumenda, quis aut placeat sapiente similique ipsam ipsa natus ratione
-      quo nulla est adipisci nemo totam aliquam vero non?
+  </ng-container>
+  <ng-template #elseBlock>
+    <div *ngFor="let v of filteredVideo" class="card-container">
+      <img
+        (click)="goToVideo(v.title!)"
+        src="{{ url + v.title }}"
+        class="card-img"
+      />
+
+      <div class="flex-space-between">
+        <div class="card-title">{{ v.title }}</div>
+        <img class="like-icon" src="../../../assets/fullhoert.ico" />
+      </div>
+      <div class="card-description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea iusto minus
+        assumenda, quis aut placeat sapiente similique ipsam ipsa natus ratione
+        quo nulla est adipisci nemo totam aliquam vero non?
+      </div>
     </div>
-  </div>
+  </ng-template>
 </div>

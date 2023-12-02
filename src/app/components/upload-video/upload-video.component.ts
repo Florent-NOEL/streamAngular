@@ -41,6 +41,10 @@ export class UploadVideoComponent {
       this.videoName = this.file.name;
       let video = <HTMLVideoElement>document.getElementById("video");
       video.src = urlSpringStream + this.type + "/" + this.videoName;
+      if (this.videoName.includes(".avi") || this.videoName.includes(".mkv")) {
+        video.src =
+          urlSpringStream + "video/mp4" + "/" + this.videoName + "to.mp4";
+      }
     }
   }
 

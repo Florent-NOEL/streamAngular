@@ -13,6 +13,7 @@ import { UploadPageComponent } from './routes/upload-page/upload-page.component'
 import { GenreListButtonComponent } from './components/genre-list-button/genre-list-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { FindByGenreComponent } from './routes/find-by-genre/find-by-genre.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     UploadPageComponent,
     GenreListButtonComponent,
     NavbarComponent,
+    FindByGenreComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
