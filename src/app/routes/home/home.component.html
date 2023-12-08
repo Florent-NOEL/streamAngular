@@ -1,3 +1,7 @@
 <div class="video-player-container">
-  <app-card-list></app-card-list>
+  <app-card-list [page]="page"></app-card-list>
+</div>
+<div class="container-btn-page">
+  <p (click)="goBack()" class="btn-page" href="">< < précédent</p>
+  <p (click)="doNext()" class="btn-page" href="">suivant > ></p>
 </div>
