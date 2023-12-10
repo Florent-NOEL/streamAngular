@@ -1,32 +1,24 @@
-.container{
+.container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 12fr 1fr ;
+  grid-template-rows: 1fr 12fr 1fr;
   grid-template-areas:
-  "header"
-  "body"
-  "footer"
-
-  ;
+    "header"
+    "body"
+    "footer";
 }
 
-
-
-.header{
+.header {
   grid-area: header;
-  background-color: rgba(149, 1, 248, 0.301);
+  background-color: rgb(10, 10, 10);
   min-height: 50px;
 }
-.body{
+.body {
   grid-area: body;
-
 }
 
-.footer{
-grid-area: footer;
-background-color: #000000;
+.footer {
+  grid-area: footer;
+  background-color: #000000;
 }
-
-
-
