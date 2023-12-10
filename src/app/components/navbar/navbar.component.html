@@ -1,19 +1,21 @@
 <div class="nav-container">
-  <select class="select-genre" [(ngModel)]="genre">
-    <ng-container *ngFor="let g of genreList">
-      <option type="select" id="{{ g }}" value="{{ g }}">{{ g }}</option>
-    </ng-container>
-  </select>
   <div>
-    <span class="nav-button" (click)="selectGenre()">
-      <img class="nav-icons" src="../../../assets/icons/loupe.ico" />
-    </span>
+    <select (change)="selectGenre()" class="select-genre" [(ngModel)]="genre">
+      <ng-container *ngFor="let g of genreList">
+        <option type="select" id="{{ g }}" value="{{ g }}">{{ g }}</option>
+      </ng-container>
+    </select>
+  </div>
 
+  <div class="nav-container-icons">
     <span (click)="goUpload()">
       <img class="nav-icons" src="../../../assets/icons/telecharger.ico" />
     </span>
     <span (click)="goHome()">
-      <img class="nav-icons" src="../../../assets/icons/home.ico" />
+      <img
+        class="nav-icons nav-container-icons-right"
+        src="../../../assets/icons/home.ico"
+      />
     </span>
   </div>
 </div>
